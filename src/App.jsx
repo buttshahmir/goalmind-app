@@ -205,96 +205,66 @@ function SplashScreen({ onEnter }) {
       display:"flex", flexDirection:"column", alignItems:"center",
       overflow:"hidden",
     }}>
-      {/* Red spotlight behind CR7 */}
+      {/* ── BACKGROUND LAYER: Jet black + dark red + CR7 text ── */}
       <div style={{
-        position:"absolute", top:"10%", left:"50%", transform:"translateX(-50%)",
-        width:340, height:340,
-        background:"radial-gradient(circle, rgba(139,0,0,0.45) 0%, transparent 70%)",
-        pointerEvents:"none",
-      }} />
+        position:"absolute", inset:0,
+        background:"linear-gradient(160deg, #000000 0%, #0d0000 40%, #1a0000 70%, #000000 100%)",
+      }}>
+        {/* Red radial glow center */}
+        <div style={{
+          position:"absolute", top:"20%", left:"50%", transform:"translateX(-50%)",
+          width:"120%", height:500,
+          background:"radial-gradient(ellipse, rgba(139,0,0,0.55) 0%, rgba(80,0,0,0.2) 40%, transparent 70%)",
+        }}/>
 
-      {/* CR7 Illustrated Hero */}
+        {/* BARA CR7 TEXT — background mein */}
+        <div style={{
+          position:"absolute", top:"50%", left:"50%",
+          transform:"translate(-50%, -50%)",
+          fontSize:"clamp(120px, 38vw, 200px)",
+          fontWeight:900,
+          letterSpacing:"-8px",
+          lineHeight:1,
+          userSelect:"none",
+          color:"transparent",
+          WebkitTextStroke:"2px rgba(139,0,0,0.35)",
+          textShadow:"0 0 80px rgba(139,0,0,0.4), 0 0 140px rgba(139,0,0,0.2)",
+          whiteSpace:"nowrap",
+        }}>CR7</div>
+
+        {/* Subtle scanlines texture */}
+        <div style={{
+          position:"absolute", inset:0,
+          backgroundImage:"repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px)",
+          pointerEvents:"none",
+        }}/>
+      </div>
+
+      {/* ── CR7 IMAGE on top of background ── */}
       <div style={{
         position:"absolute", top:0, left:"50%", transform:"translateX(-50%)",
-        width:"100%", maxWidth:480, height:"72vh",
-        opacity: show ? 1 : 0, transition:"opacity 0.9s ease",
-        overflow:"hidden",
+        width:"100%", maxWidth:480, height:"78vh",
+        opacity: show ? 1 : 0, transition:"opacity 1s ease",
       }}>
-        {/* Stadium lights */}
-        <div style={{ position:"absolute", top:0, left:0, right:0, bottom:0,
-          background:"radial-gradient(ellipse at 30% 20%, rgba(139,0,0,0.5) 0%, transparent 55%), radial-gradient(ellipse at 70% 10%, rgba(180,30,0,0.3) 0%, transparent 45%)",
+        <img
+          src="/cr7.jpg"
+          alt="Cristiano Ronaldo SIUUU"
+          style={{
+            width:"100%",
+            height:"100%",
+            objectFit:"cover",
+            objectPosition:"center top",
+            maskImage:"linear-gradient(to bottom, black 55%, transparent 92%)",
+            WebkitMaskImage:"linear-gradient(to bottom, black 55%, transparent 92%)",
+            mixBlendMode:"luminosity",
+            opacity:0.92,
+          }}
+        />
+        {/* Red color overlay on image */}
+        <div style={{
+          position:"absolute", inset:0,
+          background:"linear-gradient(180deg, rgba(139,0,0,0.15) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.8) 100%)",
         }}/>
-
-        {/* Jersey number big */}
-        <div style={{
-          position:"absolute", top:"5%", left:"50%", transform:"translateX(-50%)",
-          fontSize:180, fontWeight:900, color:"rgba(139,0,0,0.12)",
-          lineHeight:1, userSelect:"none", letterSpacing:"-10px",
-        }}>7</div>
-
-        {/* CR7 silhouette SVG */}
-        <svg viewBox="0 0 300 500" style={{
-          position:"absolute", bottom:0, left:"50%", transform:"translateX(-50%)",
-          width:"75%", height:"auto",
-          maskImage:"linear-gradient(to bottom, black 50%, transparent 95%)",
-          WebkitMaskImage:"linear-gradient(to bottom, black 50%, transparent 95%)",
-        }}>
-          {/* Body silhouette - player celebrating with arm raised */}
-          <g fill="rgba(200,30,30,0.85)">
-            {/* Head */}
-            <ellipse cx="150" cy="55" rx="28" ry="32"/>
-            {/* Neck */}
-            <rect x="140" y="82" width="20" height="18" rx="5"/>
-            {/* Torso */}
-            <path d="M100,100 Q150,90 200,100 L210,220 Q150,230 90,220 Z"/>
-            {/* Jersey number 7 on chest */}
-            <text x="150" y="175" textAnchor="middle" fontSize="36" fontWeight="900" fill="rgba(255,255,255,0.9)">7</text>
-            {/* Left arm raised up - celebrating */}
-            <path d="M100,110 Q60,80 30,30 Q25,20 35,18 Q45,16 50,28 Q75,75 108,130 Z"/>
-            <ellipse cx="32" cy="22" rx="12" ry="10" transform="rotate(-20,32,22)"/>
-            {/* Right arm down */}
-            <path d="M200,110 Q230,150 240,190 Q243,200 235,202 Q227,204 224,194 Q215,155 195,125 Z"/>
-            <ellipse cx="236" cy="197" rx="12" ry="10" transform="rotate(10,236,197)"/>
-            {/* Shorts */}
-            <path d="M95,215 Q150,225 205,215 L200,290 Q150,298 100,290 Z"/>
-            {/* Left leg */}
-            <path d="M100,285 Q88,350 85,400 Q83,412 95,413 Q107,414 108,402 Q112,352 122,290 Z"/>
-            <ellipse cx="91" cy="415" rx="16" ry="10"/>
-            {/* Right leg */}
-            <path d="M178,290 Q188,352 192,402 Q193,414 205,413 Q217,412 215,400 Q212,350 200,285 Z"/>
-            <ellipse cx="209" cy="415" rx="16" ry="10"/>
-          </g>
-          {/* White highlights on jersey */}
-          <path d="M130,102 Q150,95 170,102 L168,140 Q150,145 132,140 Z" fill="rgba(255,255,255,0.15)"/>
-        </svg>
-
-        {/* Portugal flag colors strip */}
-        <div style={{
-          position:"absolute", bottom:0, left:0, right:0, height:4,
-          background:"linear-gradient(90deg, #006600 33%, #FF0000 33%)",
-          opacity:0.6,
-        }}/>
-
-        {/* Stars above - 5 Ballon d'Or */}
-        <div style={{
-          position:"absolute", top:"8%", left:"50%", transform:"translateX(-50%)",
-          display:"flex", gap:6, fontSize:16,
-        }}>
-          {[...Array(5)].map((_, i) => (
-            <span key={i} style={{ color:C.gold, textShadow:`0 0 8px ${C.gold}` }}>★</span>
-          ))}
-        </div>
-
-        {/* CR7 name tag */}
-        <div style={{
-          position:"absolute", top:"14%", left:"50%", transform:"translateX(-50%)",
-          background:"rgba(139,0,0,0.4)", border:"1px solid rgba(139,0,0,0.6)",
-          borderRadius:8, padding:"4px 16px", whiteSpace:"nowrap",
-        }}>
-          <span style={{ fontSize:13, fontWeight:800, color:C.white, letterSpacing:"0.15em" }}>
-            CRISTIANO RONALDO
-          </span>
-        </div>
       </div>
 
       {/* Bottom content */}
