@@ -1,0 +1,48 @@
+{
+  "name": "GoalMind — FIFA WC 2026",
+  "short_name": "GoalMind",
+  "description": "AI-Powered FIFA World Cup 2026 Match Predictions",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#8b0000",
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["sports", "entertainment"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot1.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "GoalMind Home Screen"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "AI Predict",
+      "url": "/?tab=predict",
+      "description": "Predict a match with AI"
+    },
+    {
+      "name": "Hot Take",
+      "url": "/?tab=hottake",
+      "description": "Get a bold AI hot take"
+    }
+  ]
+}

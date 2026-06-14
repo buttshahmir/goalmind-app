@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background -->
+  <rect width="512" height="512" rx="100" fill="#050505"/>
+
+  <!-- Red glow circle -->
+  <circle cx="256" cy="240" r="180" fill="#8b0000" opacity="0.25"/>
+
+  <!-- Football -->
+  <circle cx="256" cy="220" r="120" fill="#111111" stroke="#8b0000" stroke-width="6"/>
+
+  <!-- Pentagon patches -->
+  <polygon points="256,130 290,155 278,193 234,193 222,155" fill="#8b0000"/>
+  <polygon points="180,170 210,148 218,183 194,205 165,195" fill="#8b0000" opacity="0.8"/>
+  <polygon points="332,170 302,148 294,183 318,205 347,195" fill="#8b0000" opacity="0.8"/>
+  <polygon points="205,265 225,240 256,250 287,240 307,265 295,295 217,295" fill="#8b0000" opacity="0.7"/>
+
+  <!-- Hexagon lines -->
+  <circle cx="256" cy="220" r="120" fill="none" stroke="#333" stroke-width="1.5"/>
+
+  <!-- Text: GoalMind -->
+  <text x="256" y="395" text-anchor="middle" font-family="Inter, Arial, sans-serif"
+        font-size="52" font-weight="900" letter-spacing="-1" fill="white">
+    Goal<tspan fill="#c0392b">Mind</tspan>
+  </text>
+
+  <!-- Tagline -->
+  <text x="256" y="435" text-anchor="middle" font-family="Inter, Arial, sans-serif"
+        font-size="22" font-weight="400" fill="#ffffff66" letter-spacing="2">
+    FIFA WC 2026
+  </text>
+</svg>
