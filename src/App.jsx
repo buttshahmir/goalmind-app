@@ -793,12 +793,21 @@ export default function App() {
         backdropFilter:"blur(16px)",
         WebkitBackdropFilter:"blur(16px)",
       }}>
-        <div style={{ display:"flex", alignItems:"center", gap:8 }}>
-          <span style={{ fontSize:22 }}>⚽</span>
-          <span style={{ fontSize:19, fontWeight:900, letterSpacing:"-0.02em" }}>
-            Goal<span style={{ color:C.redBright }}>Mind</span>
-          </span>
-        </div>
+        <button onClick={() => setTab("home")} style={{
+          background:"none", border:"none", cursor:"pointer", padding:0,
+          display:"flex", alignItems:"center",
+        }}>
+          <img
+            src="/logo.png"
+            alt="GoalMind AI"
+            style={{
+              height:40,
+              width:"auto",
+              objectFit:"contain",
+              filter:"drop-shadow(0 0 10px rgba(139,0,0,0.7))",
+            }}
+          />
+        </button>
         <div style={{
           display:"inline-flex", alignItems:"center", gap:5,
           background:"rgba(139,0,0,0.18)", border:"1px solid rgba(139,0,0,0.4)",
