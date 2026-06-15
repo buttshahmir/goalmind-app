@@ -64,18 +64,17 @@ Top contenders: Argentina, France, Brazil, England, Spain, Germany, Portugal, Ne
 Dark horses: Morocco, USA, Japan, Croatia, Senegal`;
 
 async function askGoalMind(messages) {
-  const res = await fetch("https://api.anthropic.com/v1/messages", {
+  const res = await fetch("/api/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      model: "claude-sonnet-4-6",
-      max_tokens: 1000,
       system: SYSTEM_PROMPT,
       messages,
     }),
   });
   const data = await res.json();
-  return data.content?.map(b => b.text || "").join("") || "Error.";
+  if (!res.ok) throw new Error(data.error || "API Error");
+  return data.text || "Error getting response.";
 }
 
 // ── Atoms ──────────────────────────────────────────────────────────────────
