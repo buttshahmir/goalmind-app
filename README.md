@@ -1,3 +1,4 @@
+# v3 - Groq API
 # ⚽ GoalMind — FIFA World Cup 2026 AI Prediction App
 
 AI-powered match predictions powered by Claude AI.
