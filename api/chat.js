@@ -1,5 +1,4 @@
 export default async function handler(req, res) {
-  // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -10,32 +9,29 @@ export default async function handler(req, res) {
   try {
     const { messages, system } = req.body;
 
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
+    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-'Authorization': 'Bearer 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',
-        'anthropic-version': '2023-06-01',
+        'Authorization': 'Bearer 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',
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-6',
+        model: 'llama-3.3-70b-versatile',
         max_tokens: 1000,
-        system,
-        messages,
+        messages: [
+          { role: 'system', content: system },
+          ...messages
+        ],
       }),
     });
 
     const data = await response.json();
+    if (!response.ok) return res.status(response.status).json({ error: data });
 
-    if (!response.ok) {
-      return res.status(response.status).json({ error: data });
-    }
-
-    const text = data.content?.map(b => b.text || '').join('') || '';
+    const text = data.choices?.[0]?.message?.content || 'No response';
     res.status(200).json({ text });
 
   } catch (error) {
-    console.error('API Error:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: 'Server error' });
   }
 }
