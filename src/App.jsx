@@ -24,7 +24,14 @@ const TEAMS = [
   "Japan","Senegal","Mexico","Canada","Uruguay","Colombia",
   "Denmark","Switzerland","Poland","Serbia","Ecuador","Qatar",
   "Iran","South Korea","Australia","Ghana","Cameroon","Tunisia",
-  "Saudi Arabia","Costa Rica"
+  "Saudi Arabia","Costa Rica","Egypt","New Zealand","Algeria",
+  "Nigeria","Ivory Coast","Mali","Burkina Faso","Cape Verde",
+  "Venezuela","Bolivia","Chile","Paraguay","Panama","Honduras",
+  "Jamaica","Trinidad and Tobago","Cuba","Guatemala",
+  "Slovakia","Austria","Hungary","Slovenia","Albania","Ukraine",
+  "Romania","Greece","Turkey","Czech Republic","Scotland","Wales",
+  "Iraq","Uzbekistan","Oman","Bahrain","Kuwait","Yemen",
+  "China","Thailand","Vietnam","Indonesia","Malaysia"
 ];
 
 const FLAGS = {
@@ -35,16 +42,27 @@ const FLAGS = {
   Uruguay:"🇺🇾", Colombia:"🇨🇴", Denmark:"🇩🇰", Switzerland:"🇨🇭",
   Poland:"🇵🇱", Serbia:"🇷🇸", Ecuador:"🇪🇨", Qatar:"🇶🇦",
   Iran:"🇮🇷", "South Korea":"🇰🇷", Australia:"🇦🇺", Ghana:"🇬🇭",
-  Cameroon:"🇨🇲", Tunisia:"🇹🇳", "Saudi Arabia":"🇸🇦", "Costa Rica":"🇨🇷"
+  Cameroon:"🇨🇲", Tunisia:"🇹🇳", "Saudi Arabia":"🇸🇦", "Costa Rica":"🇨🇷",
+  Egypt:"🇪🇬", "New Zealand":"🇳🇿", Algeria:"🇩🇿", Nigeria:"🇳🇬",
+  "Ivory Coast":"🇨🇮", Mali:"🇲🇱", "Burkina Faso":"🇧🇫", "Cape Verde":"🇨🇻",
+  Venezuela:"🇻🇪", Bolivia:"🇧🇴", Chile:"🇨🇱", Paraguay:"🇵🇾",
+  Panama:"🇵🇦", Honduras:"🇭🇳", Jamaica:"🇯🇲", "Trinidad and Tobago":"🇹🇹",
+  Cuba:"🇨🇺", Guatemala:"🇬🇹", Slovakia:"🇸🇰", Austria:"🇦🇹",
+  Hungary:"🇭🇺", Slovenia:"🇸🇮", Albania:"🇦🇱", Ukraine:"🇺🇦",
+  Romania:"🇷🇴", Greece:"🇬🇷", Turkey:"🇹🇷", "Czech Republic":"🇨🇿",
+  Scotland:"🏴󠁧󠁢󠁳󠁣󠁴󠁿", Wales:"🏴󠁧󠁢󠁷󠁬󠁳󠁿", Iraq:"🇮🇶", Uzbekistan:"🇺🇿",
+  Oman:"🇴🇲", Bahrain:"🇧🇭", Kuwait:"🇰🇼", Yemen:"🇾🇪",
+  China:"🇨🇳", Thailand:"🇹🇭", Vietnam:"🇻🇳", Indonesia:"🇮🇩",
+  Malaysia:"🇲🇾"
 };
 
 const SCHEDULE = [
-  { date:"Jun 11", match:"Mexico vs Canada", venue:"SoFi Stadium, LA", time:"8:00 PM EST" },
-  { date:"Jun 12", match:"USA vs Colombia", venue:"MetLife Stadium, NJ", time:"6:00 PM EST" },
-  { date:"Jun 13", match:"Argentina vs Morocco", venue:"AT&T Stadium, TX", time:"9:00 PM EST" },
-  { date:"Jun 14", match:"France vs Brazil", venue:"Rose Bowl, CA", time:"9:00 PM EST" },
-  { date:"Jun 15", match:"Spain vs Germany", venue:"Hard Rock Stadium, FL", time:"6:00 PM EST" },
-  { date:"Jun 16", match:"Portugal vs England", venue:"Levi's Stadium, CA", time:"9:00 PM EST" },
+  { date:"Jun 16", match:"Belgium vs Egypt", venue:"SoFi Stadium, LA", time:"LIVE 🔴" },
+  { date:"Jun 16", match:"Saudi Arabia vs Uruguay", venue:"MetLife Stadium, NJ", time:"3:00 AM PKT" },
+  { date:"Jun 16", match:"Iran vs New Zealand", venue:"AT&T Stadium, TX", time:"6:00 AM PKT" },
+  { date:"Jun 16", match:"France vs Senegal", venue:"Rose Bowl, CA", time:"12:00 AM PKT" },
+  { date:"Jun 17", match:"Argentina vs Morocco", venue:"Hard Rock Stadium, FL", time:"TBD" },
+  { date:"Jun 17", match:"Spain vs Brazil", venue:"Levi\'s Stadium, CA", time:"TBD" },
 ];
 
 const SYSTEM_PROMPT = `You are FootballAI — a world-class football analyst and prediction expert for FIFA World Cup 2026. Deep knowledge of stats, tactics, players, history.
