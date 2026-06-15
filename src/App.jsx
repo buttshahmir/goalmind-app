@@ -47,7 +47,7 @@ const SCHEDULE = [
   { date:"Jun 16", match:"Portugal vs England", venue:"Levi's Stadium, CA", time:"9:00 PM EST" },
 ];
 
-const SYSTEM_PROMPT = `You are GoalMind AI — a world-class football analyst and prediction expert for FIFA World Cup 2026. Deep knowledge of stats, tactics, players, history.
+const SYSTEM_PROMPT = `You are FootballAI — a world-class football analyst and prediction expert for FIFA World Cup 2026. Deep knowledge of stats, tactics, players, history.
 
 RULES:
 - Always give direct confident prediction — never vague
@@ -171,7 +171,7 @@ function ProbBar({ a, draw, b, labelA, labelB }) {
   );
 }
 
-function AICard({ children, loading, loadingLabel = "GoalMind is analyzing" }) {
+function AICard({ children, loading, loadingLabel = "AI is analyzing" }) {
   if (loading) return (
     <GlassCard style={{ textAlign:"center", padding:28 }}>
       <div style={{ fontSize:36, marginBottom:10 }}>⚽</div>
@@ -183,7 +183,7 @@ function AICard({ children, loading, loadingLabel = "GoalMind is analyzing" }) {
     <GlassCard accent style={{ borderTop:`2px solid ${C.red}` }}>
       <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:12 }}>
         <span style={{ fontSize:20 }}>🤖</span>
-        <span style={{ fontSize:13, fontWeight:700, color:C.redBright, letterSpacing:"0.05em", textTransform:"uppercase" }}>GoalMind AI</span>
+        <span style={{ fontSize:13, fontWeight:700, color:C.redBright, letterSpacing:"0.05em", textTransform:"uppercase" }}>AI Football Predictor</span>
       </div>
       <div style={{ fontSize:14, color:"rgba(255,255,255,0.88)", lineHeight:1.75, whiteSpace:"pre-wrap" }}>
         {children}
@@ -283,16 +283,16 @@ function SplashScreen({ onEnter }) {
         }}>
           <div style={{ width:7, height:7, borderRadius:"50%", background:C.redBright }} />
           <span style={{ fontSize:11, fontWeight:700, color:C.redBright, letterSpacing:"0.1em" }}>
-            FIFA WORLD CUP 2026 · LIVE NOW
+            ⚽ FIFA WC 2026 · AI PREDICTIONS
           </span>
         </div>
 
         {/* Title */}
         <div style={{ fontSize:38, fontWeight:900, color:C.white, lineHeight:1.1, marginBottom:8, letterSpacing:"-0.02em" }}>
-          Goal<span style={{ color:C.redBright }}>Mind</span>
+          Football<span style={{ color:C.redBright }}>AI</span>
         </div>
         <div style={{ fontSize:13, color:C.white60, marginBottom:6 }}>
-          AI-Powered World Cup Predictions
+          AI-Powered Football Predictions
         </div>
         <div style={{ fontSize:12, color:C.white30, marginBottom:28 }}>
           48 Teams · 104 Matches · Jun 11 – Jul 19, 2026
@@ -441,7 +441,7 @@ function PredictScreen() {
         </div>
       </GlassCard>
 
-      {loading && <AICard loading loadingLabel="GoalMind is analyzing" />}
+      {loading && <AICard loading loadingLabel="AI is analyzing" />}
 
       {result && !loading && (
         <>
@@ -558,7 +558,7 @@ function HotTakeScreen() {
         </div>
       </GlassCard>
 
-      {loading && <AICard loading loadingLabel="GoalMind is loading up" />}
+      {loading && <AICard loading loadingLabel="AI is loading up" />}
 
       {take && !loading && (
         <>
@@ -566,7 +566,7 @@ function HotTakeScreen() {
             <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:12 }}>
               <span style={{ fontSize:22 }}>🔥</span>
               <span style={{ fontSize:13, fontWeight:700, color:C.redBright, textTransform:"uppercase", letterSpacing:"0.06em" }}>
-                GoalMind Hot Take
+                AI Hot Take
               </span>
             </div>
             <div style={{ fontSize:14, color:"rgba(255,255,255,0.9)", lineHeight:1.78, whiteSpace:"pre-wrap" }}>
@@ -620,7 +620,7 @@ function BracketScreen() {
           <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:14 }}>
             <span style={{ fontSize:22 }}>🏆</span>
             <span style={{ fontSize:13, fontWeight:700, color:C.gold, textTransform:"uppercase", letterSpacing:"0.06em" }}>
-              GoalMind Bracket
+              AI Bracket Prediction
             </span>
           </div>
           <div style={{ fontSize:14, color:"rgba(255,255,255,0.88)", lineHeight:1.78, whiteSpace:"pre-wrap" }}>
@@ -634,7 +634,7 @@ function BracketScreen() {
 
 function ChatScreen() {
   const [msgs, setMsgs] = useState([
-    { role:"assistant", text:"Assalam o Alaikum! Main GoalMind AI hoon ⚽\n\nKoi bhi football sawaal poochho — match prediction, team analysis, ya World Cup 2026 ke baare mein! 🏆🔥" }
+    { role:"assistant", text:"Assalam o Alaikum! Main AI Football Predictor hoon ⚽\n\nKoi bhi football sawaal poochho — match prediction, team analysis, ya World Cup 2026 ke baare mein! 🏆🔥" }
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -676,7 +676,7 @@ function ChatScreen() {
           }}>
             {m.role === "assistant" && (
               <div style={{ fontSize:11, color:C.redBright, fontWeight:700, marginBottom:6, letterSpacing:"0.06em" }}>
-                🤖 GOALMIND AI
+                🤖 AI ANALYST
               </div>
             )}
             <div style={{ fontSize:14, color:"rgba(255,255,255,0.9)", lineHeight:1.72, whiteSpace:"pre-wrap" }}>
@@ -691,7 +691,7 @@ function ChatScreen() {
             border:`1px solid ${C.glassBorder}`,
             borderRadius:"16px 16px 16px 4px", padding:"12px 14px",
           }}>
-            <div style={{ fontSize:11, color:C.redBright, fontWeight:700, marginBottom:6 }}>🤖 GOALMIND AI</div>
+            <div style={{ fontSize:11, color:C.redBright, fontWeight:700, marginBottom:6 }}>🤖 AI ANALYST</div>
             <div style={{ color:C.redBright, fontSize:14 }}>Thinking<Dots /></div>
           </div>
         )}
@@ -799,7 +799,7 @@ export default function App() {
         }}>
           <img
             src="/logo.png"
-            alt="GoalMind AI"
+            alt="AI Football Predictor"
             style={{
               height:40,
               width:"auto",
