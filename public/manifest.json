@@ -1,7 +1,7 @@
 {
-  "name": "GoalMind — FIFA WC 2026",
-  "short_name": "GoalMind",
-  "description": "AI-Powered FIFA World Cup 2026 Match Predictions",
+  "name": "AI Football Predictor — FIFA WC 2026",
+  "short_name": "Football Predictor AI",
+  "description": "Free AI-powered FIFA World Cup 2026 match predictions, win probability, team analysis and bold hot takes",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#050505",
@@ -24,25 +24,21 @@
       "purpose": "any maskable"
     }
   ],
-  "screenshots": [
-    {
-      "src": "/screenshot1.png",
-      "sizes": "390x844",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "GoalMind Home Screen"
-    }
-  ],
   "shortcuts": [
     {
-      "name": "AI Predict",
+      "name": "AI Match Prediction",
       "url": "/?tab=predict",
-      "description": "Predict a match with AI"
+      "description": "Predict any football match with AI"
     },
     {
       "name": "Hot Take",
       "url": "/?tab=hottake",
-      "description": "Get a bold AI hot take"
+      "description": "Get bold AI football hot takes"
+    },
+    {
+      "name": "WC 2026 Bracket",
+      "url": "/?tab=bracket",
+      "description": "Full World Cup 2026 bracket prediction"
     }
   ]
 }
