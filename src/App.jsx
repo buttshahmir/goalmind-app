@@ -65,7 +65,7 @@ const SCHEDULE = [
   { date:"Jun 17", match:"Spain vs Brazil", venue:"Levi's Stadium, CA", time:"TBD" },
 ];
 
-const SYSTEM_PROMPT = `You are FootballAI — a world-class football analyst and prediction expert for FIFA World Cup 2026. Deep knowledge of stats, tactics, players, history.
+const SYSTEM_PROMPT = `You are GoalMind AI — a world-class football analyst and prediction expert for FIFA World Cup 2026. Deep knowledge of stats, tactics, players, history.
 
 RULES:
 - Always give direct confident prediction — never vague
@@ -200,7 +200,7 @@ function AICard({ children, loading, loadingLabel = "AI is analyzing" }) {
     <GlassCard accent style={{ borderTop:`2px solid ${C.red}` }}>
       <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:12 }}>
         <span style={{ fontSize:20 }}>🤖</span>
-        <span style={{ fontSize:13, fontWeight:700, color:C.redBright, letterSpacing:"0.05em", textTransform:"uppercase" }}>AI Football Predictor</span>
+        <span style={{ fontSize:13, fontWeight:700, color:C.redBright, letterSpacing:"0.05em", textTransform:"uppercase" }}>GoalMind AI</span>
       </div>
       <div style={{ fontSize:14, color:"rgba(255,255,255,0.88)", lineHeight:1.75, whiteSpace:"pre-wrap" }}>
         {children}
@@ -309,7 +309,7 @@ function SplashScreen({ onEnter }) {
           Football<span style={{ color:C.redBright }}>AI</span>
         </div>
         <div style={{ fontSize:13, color:C.white60, marginBottom:6 }}>
-          AI-Powered Football Predictions
+          GoalMind AI
         </div>
         <div style={{ fontSize:12, color:C.white30, marginBottom:28 }}>
           48 Teams · 104 Matches · Jun 11 – Jul 19, 2026
@@ -693,7 +693,7 @@ function ChatScreen() {
           }}>
             {m.role === "assistant" && (
               <div style={{ fontSize:11, color:C.redBright, fontWeight:700, marginBottom:6, letterSpacing:"0.06em" }}>
-                🤖 AI ANALYST
+                🤖 GOALMIND AI
               </div>
             )}
             <div style={{ fontSize:14, color:"rgba(255,255,255,0.9)", lineHeight:1.72, whiteSpace:"pre-wrap" }}>
@@ -708,7 +708,7 @@ function ChatScreen() {
             border:`1px solid ${C.glassBorder}`,
             borderRadius:"16px 16px 16px 4px", padding:"12px 14px",
           }}>
-            <div style={{ fontSize:11, color:C.redBright, fontWeight:700, marginBottom:6 }}>🤖 AI ANALYST</div>
+            <div style={{ fontSize:11, color:C.redBright, fontWeight:700, marginBottom:6 }}>🤖 GOALMIND AI</div>
             <div style={{ color:C.redBright, fontSize:14 }}>Thinking<Dots /></div>
           </div>
         )}
@@ -816,7 +816,7 @@ export default function App() {
         }}>
           <img
             src="/logo.png"
-            alt="AI Football Predictor"
+            alt="GoalMind AI"
             style={{
               height:40,
               width:"auto",
