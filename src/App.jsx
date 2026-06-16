@@ -62,7 +62,7 @@ const SCHEDULE = [
   { date:"Jun 16", match:"Iran vs New Zealand", venue:"AT&T Stadium, TX", time:"6:00 AM PKT" },
   { date:"Jun 16", match:"France vs Senegal", venue:"Rose Bowl, CA", time:"12:00 AM PKT" },
   { date:"Jun 17", match:"Argentina vs Morocco", venue:"Hard Rock Stadium, FL", time:"TBD" },
-  { date:"Jun 17", match:"Spain vs Brazil", venue:"Levi\'s Stadium, CA", time:"TBD" },
+  { date:"Jun 17", match:"Spain vs Brazil", venue:"Levi's Stadium, CA", time:"TBD" },
 ];
 
 const SYSTEM_PROMPT = `You are FootballAI — a world-class football analyst and prediction expert for FIFA World Cup 2026. Deep knowledge of stats, tactics, players, history.
@@ -72,7 +72,7 @@ RULES:
 - Win probability: "Team A Win: X% | Draw: X% | Team B Win: X%"
 - Back with real stats and reasoning
 - Keep responses sharp (max 180 words)
-- If user writes Roman Urdu, respond in Roman Urdu
+- Always respond in English by default\n- If user writes in another language (Urdu, Arabic, Spanish, French etc.), respond in that same language
 - HOT TAKE: bold, controversial, mic-drop ending
 - Never say "I cannot predict" — always take a stance
 - Mention confidence: LOW / MEDIUM / HIGH / VERY HIGH
@@ -352,7 +352,7 @@ function HomeScreen({ setTab }) {
           ⚡ FIFA WORLD CUP 2026
         </div>
         <div style={{ fontSize:22, fontWeight:900, color:C.white, lineHeight:1.2, marginBottom:6 }}>
-          AI Predictions<br/>Powered by GoalMind
+          GOALMIND AI
         </div>
         <div style={{ fontSize:12, color:C.white60, marginBottom:18 }}>
           USA · Canada · Mexico · 48 Teams
@@ -651,7 +651,7 @@ function BracketScreen() {
 
 function ChatScreen() {
   const [msgs, setMsgs] = useState([
-    { role:"assistant", text:"Assalam o Alaikum! Main AI Football Predictor hoon ⚽\n\nKoi bhi football sawaal poochho — match prediction, team analysis, ya World Cup 2026 ke baare mein! 🏆🔥" }
+    { role:"assistant", text:"Welcome to GoalMind AI! 🤖⚽\n\nAsk me anything about FIFA World Cup 2026 — match predictions, team stats, bracket predictions, or hot takes! 🏆🔥\n\n(I respond in your language — feel free to ask in any language!)" }
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
