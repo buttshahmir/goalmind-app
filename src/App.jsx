@@ -57,12 +57,12 @@ const FLAGS = {
 };
 
 const SCHEDULE = [
-  { date:"Jun 16", match:"Belgium vs Egypt", venue:"SoFi Stadium, LA", time:"LIVE 🔴" },
-  { date:"Jun 16", match:"Saudi Arabia vs Uruguay", venue:"MetLife Stadium, NJ", time:"3:00 AM PKT" },
-  { date:"Jun 16", match:"Iran vs New Zealand", venue:"AT&T Stadium, TX", time:"6:00 AM PKT" },
-  { date:"Jun 16", match:"France vs Senegal", venue:"Rose Bowl, CA", time:"12:00 AM PKT" },
-  { date:"Jun 17", match:"Argentina vs Morocco", venue:"Hard Rock Stadium, FL", time:"TBD" },
-  { date:"Jun 17", match:"Spain vs Brazil", venue:"Levi's Stadium, CA", time:"TBD" },
+  { date:"Jun 17", match:"France vs Senegal", venue:"Rose Bowl, CA", time:"1:00 AM PKT" },
+  { date:"Jun 17", match:"Argentina vs Algeria", venue:"AT&T Stadium, TX", time:"7:00 AM PKT" },
+  { date:"Jun 17", match:"England vs Croatia", venue:"AT&T Stadium, Dallas", time:"2:00 PM PKT" },
+  { date:"Jun 17", match:"Portugal vs DR Congo", venue:"NRG Stadium, Houston", time:"11:00 PM PKT" },
+  { date:"Jun 18", match:"Germany vs Scotland", venue:"MetLife Stadium, NJ", time:"TBD" },
+  { date:"Jun 18", match:"Spain vs Brazil", venue:"Hard Rock Stadium, FL", time:"TBD" },
 ];
 
 const SYSTEM_PROMPT = `You are GoalMind AI — a world-class football analyst and prediction expert for FIFA World Cup 2026. Deep knowledge of stats, tactics, players, history.
@@ -72,7 +72,8 @@ RULES:
 - Win probability: "Team A Win: X% | Draw: X% | Team B Win: X%"
 - Back with real stats and reasoning
 - Keep responses sharp (max 180 words)
-- Always respond in English by default\n- If user writes in another language (Urdu, Arabic, Spanish, French etc.), respond in that same language
+- Always respond in English by default
+- If user writes in another language (Urdu, Arabic, Spanish, French etc.), respond in that same language
 - HOT TAKE: bold, controversial, mic-drop ending
 - Never say "I cannot predict" — always take a stance
 - Mention confidence: LOW / MEDIUM / HIGH / VERY HIGH
@@ -188,7 +189,7 @@ function ProbBar({ a, draw, b, labelA, labelB }) {
   );
 }
 
-function AICard({ children, loading, loadingLabel = "AI is analyzing" }) {
+function AICard({ children, loading, loadingLabel = "GoalMind AI is analyzing" }) {
   if (loading) return (
     <GlassCard style={{ textAlign:"center", padding:28 }}>
       <div style={{ fontSize:36, marginBottom:10 }}>⚽</div>
@@ -222,34 +223,29 @@ function SplashScreen({ onEnter }) {
       display:"flex", flexDirection:"column", alignItems:"center",
       overflow:"hidden",
     }}>
-      {/* ── BACKGROUND LAYER: Jet black + dark red + CR7 text ── */}
+      {/* Background Layer */}
       <div style={{
         position:"absolute", inset:0,
         background:"linear-gradient(160deg, #000000 0%, #0d0000 40%, #1a0000 70%, #000000 100%)",
       }}>
-        {/* Red radial glow center */}
+        {/* Red radial glow */}
         <div style={{
           position:"absolute", top:"20%", left:"50%", transform:"translateX(-50%)",
           width:"120%", height:500,
           background:"radial-gradient(ellipse, rgba(139,0,0,0.55) 0%, rgba(80,0,0,0.2) 40%, transparent 70%)",
         }}/>
-
-        {/* BARA CR7 TEXT — background mein */}
+        {/* CR7 background text */}
         <div style={{
           position:"absolute", top:"50%", left:"50%",
           transform:"translate(-50%, -50%)",
           fontSize:"clamp(120px, 38vw, 200px)",
-          fontWeight:900,
-          letterSpacing:"-8px",
-          lineHeight:1,
-          userSelect:"none",
-          color:"transparent",
+          fontWeight:900, letterSpacing:"-8px", lineHeight:1,
+          userSelect:"none", color:"transparent",
           WebkitTextStroke:"2px rgba(139,0,0,0.35)",
           textShadow:"0 0 80px rgba(139,0,0,0.4), 0 0 140px rgba(139,0,0,0.2)",
           whiteSpace:"nowrap",
         }}>CR7</div>
-
-        {/* Subtle scanlines texture */}
+        {/* Scanlines */}
         <div style={{
           position:"absolute", inset:0,
           backgroundImage:"repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px)",
@@ -257,7 +253,7 @@ function SplashScreen({ onEnter }) {
         }}/>
       </div>
 
-      {/* ── CR7 IMAGE on top of background ── */}
+      {/* CR7 Image */}
       <div style={{
         position:"absolute", top:0, left:"50%", transform:"translateX(-50%)",
         width:"100%", maxWidth:480, height:"78vh",
@@ -267,17 +263,13 @@ function SplashScreen({ onEnter }) {
           src="/cr7.jpg"
           alt="Cristiano Ronaldo SIUUU"
           style={{
-            width:"100%",
-            height:"100%",
-            objectFit:"cover",
-            objectPosition:"center top",
+            width:"100%", height:"100%",
+            objectFit:"cover", objectPosition:"center top",
             maskImage:"linear-gradient(to bottom, black 55%, transparent 92%)",
             WebkitMaskImage:"linear-gradient(to bottom, black 55%, transparent 92%)",
-            mixBlendMode:"luminosity",
-            opacity:0.92,
+            mixBlendMode:"luminosity", opacity:0.92,
           }}
         />
-        {/* Red color overlay on image */}
         <div style={{
           position:"absolute", inset:0,
           background:"linear-gradient(180deg, rgba(139,0,0,0.15) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.8) 100%)",
@@ -308,6 +300,8 @@ function SplashScreen({ onEnter }) {
         <div style={{ fontSize:38, fontWeight:900, color:C.white, lineHeight:1.1, marginBottom:8, letterSpacing:"-0.02em" }}>
           GOALMIND<span style={{ color:C.redBright }}>AI</span>
         </div>
+        <div style={{ fontSize:13, color:C.white60, marginBottom:4 }}>
+          AI-Powered World Cup Predictions
         </div>
         <div style={{ fontSize:12, color:C.white30, marginBottom:28 }}>
           48 Teams · 104 Matches · Jun 11 – Jul 19, 2026
@@ -338,8 +332,6 @@ function SplashScreen({ onEnter }) {
 function HomeScreen({ setTab }) {
   return (
     <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
-
-      {/* Hero card */}
       <GlassCard style={{
         background:`linear-gradient(135deg, rgba(139,0,0,0.18), rgba(0,0,0,0.4))`,
         border:`1px solid rgba(139,0,0,0.3)`,
@@ -350,7 +342,7 @@ function HomeScreen({ setTab }) {
           ⚡ FIFA WORLD CUP 2026
         </div>
         <div style={{ fontSize:22, fontWeight:900, color:C.white, lineHeight:1.2, marginBottom:6 }}>
-          GOALMIND AI
+          GoalMind AI
         </div>
         <div style={{ fontSize:12, color:C.white60, marginBottom:18 }}>
           USA · Canada · Mexico · 48 Teams
@@ -364,7 +356,6 @@ function HomeScreen({ setTab }) {
         </button>
       </GlassCard>
 
-      {/* Quick actions */}
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:10 }}>
         {[
           { icon:"🤖", label:"AI Predict", sub:"Match prediction", tab:"predict", color:C.redBright },
@@ -387,10 +378,9 @@ function HomeScreen({ setTab }) {
         ))}
       </div>
 
-      {/* Schedule */}
       <GlassCard>
         <div style={{ fontSize:13, fontWeight:700, color:C.white, marginBottom:14, display:"flex", alignItems:"center", gap:6 }}>
-          <span>📅</span> Upcoming Matches
+          <span>📅</span> Today's Matches
         </div>
         {SCHEDULE.map((m, i) => (
           <div key={i} style={{
@@ -438,7 +428,6 @@ function PredictScreen() {
   return (
     <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
       <div style={{ fontSize:20, fontWeight:900, color:C.white }}>🤖 AI Match Prediction</div>
-
       <GlassCard>
         <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
           <div>
@@ -455,9 +444,7 @@ function PredictScreen() {
           </RedBtn>
         </div>
       </GlassCard>
-
-      {loading && <AICard loading loadingLabel="AI is analyzing" />}
-
+      {loading && <AICard loading loadingLabel="GoalMind AI is analyzing" />}
       {result && !loading && (
         <>
           {probs && (
@@ -505,7 +492,6 @@ function TeamsScreen() {
           </RedBtn>
         </div>
       </GlassCard>
-
       {loading && <AICard loading loadingLabel={`Analyzing ${team}`} />}
       {analysis && !loading && (
         <GlassCard accent style={{ borderTop:`2px solid ${C.gold}` }}>
@@ -544,7 +530,6 @@ function HotTakeScreen() {
 
   return (
     <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
-      {/* Header */}
       <GlassCard style={{
         background:`linear-gradient(135deg, rgba(139,0,0,0.22), rgba(180,80,0,0.10))`,
         border:`1px solid rgba(139,0,0,0.35)`,
@@ -573,7 +558,7 @@ function HotTakeScreen() {
         </div>
       </GlassCard>
 
-      {loading && <AICard loading loadingLabel="AI is loading up" />}
+      {loading && <AICard loading loadingLabel="GoalMind AI is loading up" />}
 
       {take && !loading && (
         <>
@@ -581,7 +566,7 @@ function HotTakeScreen() {
             <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:12 }}>
               <span style={{ fontSize:22 }}>🔥</span>
               <span style={{ fontSize:13, fontWeight:700, color:C.redBright, textTransform:"uppercase", letterSpacing:"0.06em" }}>
-                AI Hot Take
+                GoalMind AI Hot Take
               </span>
             </div>
             <div style={{ fontSize:14, color:"rgba(255,255,255,0.9)", lineHeight:1.78, whiteSpace:"pre-wrap" }}>
@@ -614,7 +599,6 @@ function BracketScreen() {
   return (
     <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
       <div style={{ fontSize:20, fontWeight:900, color:C.white }}>🏆 Bracket Prediction</div>
-
       <GlassCard style={{ textAlign:"center", padding:28 }}>
         <div style={{ fontSize:54, marginBottom:10 }}>🏆</div>
         <div style={{ fontSize:16, fontWeight:700, color:C.white, marginBottom:6 }}>
@@ -627,15 +611,13 @@ function BracketScreen() {
           {loading ? "Predicting…" : "Generate Full Bracket 🏆"}
         </RedBtn>
       </GlassCard>
-
       {loading && <AICard loading loadingLabel="Building bracket" />}
-
       {bracket && !loading && (
         <GlassCard style={{ border:`1px solid rgba(201,168,76,0.35)`, borderTop:`2px solid ${C.gold}` }}>
           <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:14 }}>
             <span style={{ fontSize:22 }}>🏆</span>
             <span style={{ fontSize:13, fontWeight:700, color:C.gold, textTransform:"uppercase", letterSpacing:"0.06em" }}>
-              AI Bracket Prediction
+              GoalMind AI Bracket
             </span>
           </div>
           <div style={{ fontSize:14, color:"rgba(255,255,255,0.88)", lineHeight:1.78, whiteSpace:"pre-wrap" }}>
@@ -667,16 +649,14 @@ function ChatScreen() {
       const reply = await askGoalMind(apiMsgs);
       setMsgs(m => [...m, { role:"assistant", text:reply }]);
     } catch {
-      setMsgs(m => [...m, { role:"assistant", text:"Kuch masla aaya — dobara try karo!" }]);
+      setMsgs(m => [...m, { role:"assistant", text:"Something went wrong — please try again!" }]);
     }
     setLoading(false);
   }
 
   return (
     <div style={{ display:"flex", flexDirection:"column", height:"calc(100vh - 160px)", minHeight:400 }}>
-      <div style={{ fontSize:20, fontWeight:900, color:C.white, marginBottom:12 }}>💬 Ask GoalMind</div>
-
-      {/* Messages */}
+      <div style={{ fontSize:20, fontWeight:900, color:C.white, marginBottom:12 }}>💬 Ask GoalMind AI</div>
       <div style={{ flex:1, overflowY:"auto", display:"flex", flexDirection:"column", gap:10, paddingBottom:8 }}>
         {msgs.map((m, i) => (
           <div key={i} style={{
@@ -699,7 +679,6 @@ function ChatScreen() {
             </div>
           </div>
         ))}
-
         {loading && (
           <div style={{
             alignSelf:"flex-start", background:C.glass,
@@ -713,9 +692,8 @@ function ChatScreen() {
         <div ref={endRef} />
       </div>
 
-      {/* Suggestions */}
       <div style={{ display:"flex", gap:6, marginBottom:10, flexWrap:"wrap" }}>
-        {["Argentina jeeta ga? 🇦🇷","France ka kya scene ha?","Dark horse kaun ha?"].map(q => (
+        {["Who wins the World Cup? 🏆","Argentina vs France prediction 🇦🇷","Best dark horse team? 🔥"].map(q => (
           <button key={q} onClick={() => setInput(q)} style={{
             background:C.glass, border:`1px solid ${C.glassBorder}`,
             borderRadius:99, padding:"6px 12px",
@@ -724,34 +702,22 @@ function ChatScreen() {
         ))}
       </div>
 
-      {/* Input */}
       <div style={{ display:"flex", gap:8 }}>
         <input
           value={input}
           onChange={e => setInput(e.target.value)}
           onKeyDown={e => e.key === "Enter" && send()}
-          placeholder="Koi bhi sawaal poochho… ⚽"
+          placeholder="Ask anything about WC 2026… ⚽"
           style={{
-            flex:1,
-            background:"rgba(255,255,255,0.05)",
-            color:C.white,
-            border:`1px solid ${C.glassBorder}`,
-            borderRadius:12,
-            padding:"12px 14px",
-            fontSize:14,
-            outline:"none",
+            flex:1, background:"rgba(255,255,255,0.05)", color:C.white,
+            border:`1px solid ${C.glassBorder}`, borderRadius:12,
+            padding:"12px 14px", fontSize:14, outline:"none",
           }}
         />
         <button onClick={send} disabled={!input.trim() || loading} style={{
           background: input.trim() ? `linear-gradient(135deg,${C.red},${C.redBright})` : C.glass,
-          color:C.white,
-          border:"none",
-          borderRadius:12,
-          padding:"12px 16px",
-          fontWeight:800,
-          fontSize:16,
-          cursor:"pointer",
-          flexShrink:0,
+          color:C.white, border:"none", borderRadius:12,
+          padding:"12px 16px", fontWeight:800, fontSize:16, cursor:"pointer", flexShrink:0,
         }}>➤</button>
       </div>
     </div>
@@ -795,33 +761,23 @@ export default function App() {
       margin:"0 auto",
       position:"relative",
     }}>
-
       {/* Top bar */}
       <div style={{
         padding:"14px 18px 12px",
-        display:"flex",
-        alignItems:"center",
-        justifyContent:"space-between",
+        display:"flex", alignItems:"center", justifyContent:"space-between",
         borderBottom:`1px solid ${C.glassBorder}`,
         position:"sticky", top:0, zIndex:10,
         background:"rgba(5,5,5,0.85)",
-        backdropFilter:"blur(16px)",
-        WebkitBackdropFilter:"blur(16px)",
+        backdropFilter:"blur(16px)", WebkitBackdropFilter:"blur(16px)",
       }}>
         <button onClick={() => setTab("home")} style={{
           background:"none", border:"none", cursor:"pointer", padding:0,
           display:"flex", alignItems:"center",
         }}>
-          <img
-            src="/logo.png"
-            alt="GoalMind AI"
-            style={{
-              height:40,
-              width:"auto",
-              objectFit:"contain",
-              filter:"drop-shadow(0 0 10px rgba(139,0,0,0.7))",
-            }}
-          />
+          <img src="/logo.png" alt="GoalMind AI" style={{
+            height:40, width:"auto", objectFit:"contain",
+            filter:"drop-shadow(0 0 10px rgba(139,0,0,0.7))",
+          }} />
         </button>
         <div style={{
           display:"inline-flex", alignItems:"center", gap:5,
@@ -840,39 +796,26 @@ export default function App() {
 
       {/* Bottom nav */}
       <div style={{
-        position:"fixed", bottom:0,
-        left:"50%", transform:"translateX(-50%)",
+        position:"fixed", bottom:0, left:"50%", transform:"translateX(-50%)",
         width:"100%", maxWidth:480,
         background:"rgba(5,5,5,0.92)",
-        backdropFilter:"blur(20px)",
-        WebkitBackdropFilter:"blur(20px)",
+        backdropFilter:"blur(20px)", WebkitBackdropFilter:"blur(20px)",
         borderTop:`1px solid ${C.glassBorder}`,
-        display:"flex",
-        zIndex:20,
+        display:"flex", zIndex:20,
         paddingBottom:"env(safe-area-inset-bottom)",
       }}>
         {NAV.map(n => (
           <button key={n.id} onClick={() => setTab(n.id)} style={{
-            flex:1,
-            display:"flex",
-            flexDirection:"column",
-            alignItems:"center",
-            gap:3,
-            padding:"10px 0 8px",
-            background:"none",
-            border:"none",
-            cursor:"pointer",
+            flex:1, display:"flex", flexDirection:"column", alignItems:"center",
+            gap:3, padding:"10px 0 8px",
+            background:"none", border:"none", cursor:"pointer",
             color: tab === n.id ? C.redBright : "rgba(255,255,255,0.35)",
-            transition:"color 0.2s",
-            position:"relative",
+            transition:"color 0.2s", position:"relative",
           }}>
             {tab === n.id && (
               <div style={{
-                position:"absolute",
-                top:0, left:"20%", right:"20%",
-                height:2,
-                background:C.redBright,
-                borderRadius:"0 0 4px 4px",
+                position:"absolute", top:0, left:"20%", right:"20%",
+                height:2, background:C.redBright, borderRadius:"0 0 4px 4px",
               }} />
             )}
             <span style={{ fontSize:20 }}>{n.icon}</span>
