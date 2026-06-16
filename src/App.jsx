@@ -306,10 +306,8 @@ function SplashScreen({ onEnter }) {
 
         {/* Title */}
         <div style={{ fontSize:38, fontWeight:900, color:C.white, lineHeight:1.1, marginBottom:8, letterSpacing:"-0.02em" }}>
-          Football<span style={{ color:C.redBright }}>AI</span>
+          GOALMIND<span style={{ color:C.redBright }}>AI</span>
         </div>
-        <div style={{ fontSize:13, color:C.white60, marginBottom:6 }}>
-          GoalMind AI
         </div>
         <div style={{ fontSize:12, color:C.white30, marginBottom:28 }}>
           48 Teams · 104 Matches · Jun 11 – Jul 19, 2026
