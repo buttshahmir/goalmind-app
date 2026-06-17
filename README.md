@@ -1,4 +1,4 @@
-# v3 
+# v4
 # ⚽ GoalMind — FIFA World Cup 2026 AI Prediction App
 
 AI-powered match predictions powered by Claude AI.
