@@ -10,7 +10,7 @@ export default async function handler(req, res) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
+'Authorization': 'Bearer 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',
         'HTTP-Referer': 'https://goalmind-app.vercel.app',
         'X-Title': 'GoalMind AI',
       },
