@@ -9,14 +9,16 @@ export default async function handler(req, res) {
   try {
     const { messages, system } = req.body;
 
-    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer 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',
+        'Authorization': 'Bearer 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',
+        'HTTP-Referer': 'https://goalmind-app.vercel.app',
+        'X-Title': 'GoalMind AI',
       },
       body: JSON.stringify({
-        model: 'llama-3.3-70b-versatile',
+        model: 'meta-llama/llama-3.3-70b-instruct:free',
         max_tokens: 1000,
         messages: [
           { role: 'system', content: system },
