@@ -26,6 +26,7 @@ const TEAMS = [
   "Iran","South Korea","Australia","Ghana","Cameroon","Tunisia",
   "Saudi Arabia","Costa Rica","Egypt","New Zealand","Algeria",
   "Nigeria","Ivory Coast","Mali","Burkina Faso","Cape Verde",
+  "DR Congo",
   "Venezuela","Bolivia","Chile","Paraguay","Panama","Honduras",
   "Jamaica","Trinidad and Tobago","Cuba","Guatemala",
   "Slovakia","Austria","Hungary","Slovenia","Albania","Ukraine",
@@ -35,7 +36,7 @@ const TEAMS = [
 ];
 
 const FLAGS = {
-  Argentina:"🇦🇷", France:"🇫🇷", Brazil:"🇧🇷", England:"🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+  Argentina:"🇦🇷", France:"🇫🇷", Brazil:"🇧🇷", England:"🏴",
   Spain:"🇪🇸", Germany:"🇩🇪", Portugal:"🇵🇹", Netherlands:"🇳🇱",
   Belgium:"🇧🇪", Croatia:"🇭🇷", Morocco:"🇲🇦", USA:"🇺🇸",
   Japan:"🇯🇵", Senegal:"🇸🇳", Mexico:"🇲🇽", Canada:"🇨🇦",
@@ -45,12 +46,13 @@ const FLAGS = {
   Cameroon:"🇨🇲", Tunisia:"🇹🇳", "Saudi Arabia":"🇸🇦", "Costa Rica":"🇨🇷",
   Egypt:"🇪🇬", "New Zealand":"🇳🇿", Algeria:"🇩🇿", Nigeria:"🇳🇬",
   "Ivory Coast":"🇨🇮", Mali:"🇲🇱", "Burkina Faso":"🇧🇫", "Cape Verde":"🇨🇻",
+  "DR Congo":"🇨🇩",
   Venezuela:"🇻🇪", Bolivia:"🇧🇴", Chile:"🇨🇱", Paraguay:"🇵🇾",
   Panama:"🇵🇦", Honduras:"🇭🇳", Jamaica:"🇯🇲", "Trinidad and Tobago":"🇹🇹",
   Cuba:"🇨🇺", Guatemala:"🇬🇹", Slovakia:"🇸🇰", Austria:"🇦🇹",
   Hungary:"🇭🇺", Slovenia:"🇸🇮", Albania:"🇦🇱", Ukraine:"🇺🇦",
   Romania:"🇷🇴", Greece:"🇬🇷", Turkey:"🇹🇷", "Czech Republic":"🇨🇿",
-  Scotland:"🏴󠁧󠁢󠁳󠁣󠁴󠁿", Wales:"🏴󠁧󠁢󠁷󠁬󠁳󠁿", Iraq:"🇮🇶", Uzbekistan:"🇺🇿",
+  Scotland:"🏴", Wales:"🏴", Iraq:"🇮🇶", Uzbekistan:"🇺🇿",
   Oman:"🇴🇲", Bahrain:"🇧🇭", Kuwait:"🇰🇼", Yemen:"🇾🇪",
   China:"🇨🇳", Thailand:"🇹🇭", Vietnam:"🇻🇳", Indonesia:"🇮🇩",
   Malaysia:"🇲🇾"
